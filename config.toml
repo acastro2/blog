@@ -1,3 +1,13 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
+theme = "hyde"
+
+[params]
+  description = "Your custom description"
+
+[Menus]
+  main = [
+      {Name = "Github", URL = "https://github.com/username/"},
+      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/username/"}
+  ]

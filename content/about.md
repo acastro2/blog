@@ -1,7 +1,6 @@
 ---
 title: "About"
 date: 2022-02-15T16:32:17-03:00
-sitemap_exclude: true
 ---
 
 This blog ....

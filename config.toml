@@ -2,6 +2,7 @@ baseURL = 'https://alexandrecastro.org/'
 languageCode = 'en-us'
 title = 'Alexandre Castro'
 theme = "hyde"
+enableRobotsTXT = true
 
 [author]
   name = 'Alexandre Castro'

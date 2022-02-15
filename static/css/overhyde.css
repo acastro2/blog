@@ -1,0 +1,18 @@
+.sidebar {
+  text-align: left;
+}
+
+.lead {
+  font-size: 1rem !important;
+}
+
+.copywrite {
+  font-size: 0.75rem;
+}
+
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.75rem;
+}

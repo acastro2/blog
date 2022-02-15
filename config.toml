@@ -1,13 +1,17 @@
 baseURL = 'https://alexandrecastro.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Alexandre Castro'
 theme = "hyde"
 
+[author]
+  name = 'Alexandre Castro'
+
 [params]
-  description = "Your custom description"
+  description = "Documentation, ideas and opinions on what I'm currently working on."
+  custom_css = ["css/overhyde.css"]
 
 [Menus]
   main = [
-      {Name = "Github", URL = "https://github.com/username/"},
-      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/username/"}
+      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/alexandreamadocastro/"},
+      {Name = "Github", URL = "https://github.com/acastro2/"}
   ]

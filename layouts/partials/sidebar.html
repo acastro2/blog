@@ -1,0 +1,30 @@
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="{{ .Site.BaseURL }}">
+        <h1>{{ .Site.Title }}</h1>
+      </a>
+      <p class="lead">
+        {{ .Site.Params.description }}
+      </p>
+      <p class="lead">
+        by <a href="https://alexandrecastro.org/about">Alex</a>
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="{{ .Site.BaseURL }}">Home</a> </li>
+        {{ range .Site.Menus.main -}}
+        <li><a href="{{.URL}}"> {{ .Name }} </a></li>
+        {{- end }}
+      </ul>
+    </nav>
+
+    <p class="copywrite">
+      This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons
+        Attribution-ShareAlike 4.0 International License</a>. This blog is
+      served by <a href="https://gohugo.io/">Hugo</a>.
+    </p>
+  </div>
+</aside>

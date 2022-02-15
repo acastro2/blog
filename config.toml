@@ -12,6 +12,7 @@ theme = "hyde"
 
 [Menus]
   main = [
+      {Name = "Archive", URL = "/post"},
       {Name = "LinkedIn", URL = "https://www.linkedin.com/in/alexandreamadocastro/"},
       {Name = "Github", URL = "https://github.com/acastro2/"}
   ]

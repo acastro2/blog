@@ -10,6 +10,7 @@ image: "/media/author.jpeg"
 {{< figure
   src="/media/author.jpeg"
   alt="Picture of the Author"
+  height=300px
 >}}
 
 Hey there! My name is Alexandre, but you can call me Alex. I'm a software engineer with a passion for technology and a desire to always learn something new 🤓. I come from São Paulo, Brazil and currently living in Chicago, Illinois (brrr, it's cold here! ❄️)

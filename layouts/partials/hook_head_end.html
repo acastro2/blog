@@ -5,6 +5,10 @@
   <meta name="title" property=”og:title” content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
   <meta name="twitter:title" content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
 
+  {{ if .Date }}
+  <meta name='date' content='{{ .Date }}'>
+  {{ end }}
+
   <meta name="description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
   <meta property="og:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
   <meta name="twitter:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
@@ -13,6 +17,9 @@
   <meta property="og:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
   <meta name="twitter:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
   <meta name="twitter:image:src" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+
+  <meta name='language' content='EN'>
+  <meta name='og:country-name' content='USA'>
 
   <!--Inject Mermaid-->
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>

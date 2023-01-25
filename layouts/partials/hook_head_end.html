@@ -2,7 +2,19 @@
 <link rel="stylesheet" href="{{ . | absURL }}">
 {{- end }}
 
-<!--Inject Mermaid-->
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({ startOnLoad: true, securityLevel: "loose", theme: "default" });</script>
-<!--End Inject Mermaid-->
+  <meta name="title" property=”og:title” content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
+  <meta name="twitter:title" content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
+  
+  <meta name="description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
+  <meta property="og:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
+  <meta name="twitter:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
+  
+  <meta itemprop="image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+  <meta property="og:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+  <meta name="twitter:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+  <meta name="twitter:image:src" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+
+  <!--Inject Mermaid-->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, securityLevel: "loose", theme: "default" });</script>
+  <!--End Inject Mermaid-->

@@ -1,11 +1,15 @@
 ---
 title: "About"
 date: 2022-02-15T16:32:17-03:00
+description: "This is a short description"
+image: /media/author.png
 ---
 
 This blog ....
 
 ## About the author
+
+{{< figure src="/media/author.jpeg" title="Alexandre Castro" >}}
 
 I'm a Principal Engineer at Enova International, developing and leading a software engineering team in several web-engineered products using AWS services.
 

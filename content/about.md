@@ -7,7 +7,10 @@ image: "/media/author.jpeg"
 
 **🚀 Join a tech-savvy software engineer on a journey of learning and exploration in Golang, software architecture, AWS, and Kubernetes.**
 
-{{< figure src="/media/author.jpeg" title="Alexandre Castro" >}}
+{{< figure
+  src="/media/author.jpeg"
+  alt="Picture of the Author"
+>}}
 
 Hey there! My name is Alexandre, but you can call me Alex. I'm a software engineer with a passion for technology and a desire to always learn something new 🤓. I come from São Paulo, Brazil and currently living in Chicago, Illinois (brrr, it's cold here! ❄️)
 

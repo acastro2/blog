@@ -1,13 +1,11 @@
 ---
-title: "About"
+title: "About me!"
 date: 2023-01-24T16:32:17-06:00
-description: "This is a short description"
-image: "/media/author.png"
+description: "Join a tech-savvy software engineer on a journey of learning and exploration in Golang, software architecture, AWS, and Kubernetes"
+image: "/media/author.jpeg"
 ---
 
-**🚀 Join a tech-savvy software engineer on a journey of learning and exploration in Golang, software architecture, AWS, and Kubernetes**
-
-## About the me!
+**🚀 Join a tech-savvy software engineer on a journey of learning and exploration in Golang, software architecture, AWS, and Kubernetes.**
 
 {{< figure src="/media/author.jpeg" title="Alexandre Castro" >}}
 

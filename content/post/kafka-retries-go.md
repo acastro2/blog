@@ -157,20 +157,31 @@ Here, I want to point that there's one **key difference** in our implementation,
 
 ⚠️ The **key** assumption here is that your application don't strongly care the order of the messages, so you can keep retrying a message while progressing the topic, if that's **not** the case, you will need to stop the consumer!
 
-{{< tabs >}}
-{{% tab name="python" %}}
-```python
-print("Hello World!")
-```
-{{% /tab %}}
-{{% tab name="R" %}}
-```R
-> print("Hello World!")
-```
-{{% /tab %}}
-{{% tab name="Bash" %}}
-```Bash
-echo "Hello World!"
-```
-{{% /tab %}}
-{{< /tabs >}}
+#### Here's the code
+
+{{< gist acastro2 8ad546ccff0c3e82aa5b5e867c086c80 "kafka-retry.go" >}}
+
+#### Explanation in plain text
+
+The `kafka_retry_dlq` package provides a mechanism for consuming messages from a Kafka topic with a retry mechanism in case of processing errors.
+
+##### Types
+
+* `ProcessRetryHandler`: An interface that must be implemented by types that will handle the processing of messages. It has the following methods:
+  * `Process(context.Context, kafka.Message) error`: processes a message, returns an error if the processing failed.
+  * `MoveToDLQ(context.Context, kafka.Message)`: moves a message to the dead letter queue.
+  * `MaxRetries() int`: returns the maximum number of retries for a message.
+  * `Backoff() backoff.BackOff`: returns a backoff strategy for retrying a message.
+
+##### Variables
+
+* `retryQueue`: A channel of `kafka.Message` with a buffer of 1000 messages.
+
+##### Functions
+
+* `NewConsumerWithRetry(ctx context.Context, brokers []string, topic string, partition int, handler ProcessRetryHandler)`: creates a new kafka consumer with retry mechanism.
+  * It creates a new kafka reader with the provided brokers, topic, partition and buffer size.
+  * It starts a goroutine that reads messages from the kafka topic and processes them using the provided `handler`.
+  * If the processing of a message returns an error, the message is sent to the `retryQueue` channel.
+  * It starts another goroutine that listens to the `retryQueue` channel and processes the messages with the provided `handler` until the maximum number of retries is reached or the message is successfully processed.
+  * If the maximum number of retries is reached, the message is moved to the dead letter queue using the `MoveToDLQ` method of the `handler`.

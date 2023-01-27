@@ -1,7 +1,7 @@
 ---
 title: "Kafka Retries Go"
 date: 2023-01-24T22:44:14-06:00
-draft: true
+#draft: true
 ---
 
 When doing event-driven applications using Kafka, in the consumer side, after you receiving the Kafka message, your application needs to do something with it. For this blog post lets name this part "Processing the message".
@@ -132,3 +132,45 @@ However, it isn't great. Databases are clearly not queues and using it as such i
 After trying all of the above, having some degree of success and several degress of failure and mostly being unsatisfied with the results I decided to look at how some other companies and frameworks are doing it.
 
 There's very little resource about that in the internet (which is one of the reasons why I'm writing this blog post). However, one of the biggest frameworks we have in existence do have a retry mechanism: Spring!
+
+Spring is an open-source Java framework that provides a comprehensive programming and configuration model for building modern enterprise applications through multiple modules and you pick the ones you need.
+
+One of such modules is the Spring Kafka, which provides several ways to handle retries when consuming messages, such as using the RetryTemplate and RetryCallback interfaces from the Spring Retry library to define a retry policy, using the @KafkaListener annotation to configure retry behavior on a per-method basis or using AOP to handle retries by using a RetryInterceptor. Spring Kafka allows developers to choose the approach that best fits their use case, whether it is a global retry policy or a more fine-grained per-method retry configuration.
+
+Has been a long time that I don't work with Java, and Spring code is far from easy to understand (its pretty advanced stuff), but after a deep dive of it, this is the very shallow understand I acquired from it:
+
+Spring implements an Error Handler using a strategy for handling exceptions thrown by the consumers. When an exception that is not a `BatchListenerFailedException` (which Spring knows is impossible to retry) is thrown, the error handler will retry the batch of records **from memory**. To prevent a consumer rebalance during an extended retry sequence, the error handler pauses the consumer, polls it before sleeping for the back off interval for each retry, and calls the listener again. If the retries are exhausted, it invokes a Consumer Record Recoverer for each record in the batch. If the recoverer throws an exception or the thread is interrupted during its sleep, the batch of records will be redelivered on the next poll. The consumer is resumed regardless of the outcome before the error handler exits.
+
+In my honest opinion this is a really elegant solution.
+
+### Recreating it in Golang
+
+I currently work (and love 💙) with Go, and, as far as my research went, I didn't find any rewwrite of the Spring Kafka+Retry framework in Golang, so, lets build our own!
+
+Here, I want to point that there's one **key difference** in our implementation, I do really like the idea of pausing the Consumer and in case of something catastrophic happen it going back to the previous record of the batch. However, I don't really think that is necessary, I preferred to implement it by:
+
+* Creating a Consumer that will read from the topic.
+* Create a go channel that will handle the retries.
+* If a message fail to process, send it to the retry channel.
+* The main consumer continues to process the main topic while the other messages are retried
+* If the retries exhaust it sends it to a persisted DLQ for later investigation
+
+⚠️ The **key** assumption here is that your application don't strongly care the order of the messages, so you can keep retrying a message while progressing the topic, if that's **not** the case, you will need to stop the consumer!
+
+{{< tabs >}}
+{{% tab name="python" %}}
+```python
+print("Hello World!")
+```
+{{% /tab %}}
+{{% tab name="R" %}}
+```R
+> print("Hello World!")
+```
+{{% /tab %}}
+{{% tab name="Bash" %}}
+```Bash
+echo "Hello World!"
+```
+{{% /tab %}}
+{{< /tabs >}}

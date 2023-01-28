@@ -14,7 +14,7 @@ summary: "Hey there! My name is Alexandre, but you can call me Alex. I'm a softw
   height=300px
 >}}
 
-Hey there! My name is Alexandre, but you can call me Alex. I'm a software engineer with a passion for technology and a desire to always learn something new 🤓. I come from São Paulo, Brazil and currently living in Chicago, Illinois (brrr, it's cold here! ❄️)
+Hey there! My name is Alexandre, but you can call me Alex. I'm a software engineer with a passion for technology and a desire to always learn something new 🤓. I come from São Paulo, Brazil and currently living in Chicago, Illinois (brrr, it's cold here! ❄️) with my wife 💍 and two cats 🐈 🐈
 
 I have a Bachelor's degree in Information Systems and a Master's in Financial Engineering, which has helped me bring a unique perspective to my work 🧑‍🎓. With over eight years of experience in the tech industry, I've had the opportunity to work on various projects and hold leadership roles in multiple teams 💻.
 

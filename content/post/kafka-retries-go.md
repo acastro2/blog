@@ -1,31 +1,35 @@
 ---
-title: "Kafka Retries Go"
+title: "Kafka Retries: Implementing Consumer Retry Capabilities in Go"
 date: 2023-01-24T22:44:14-06:00
-#draft: true
+draft: true
 ---
 
-When doing event-driven applications using Kafka, in the consumer side, after you receiving the Kafka message, your application needs to do something with it. For this blog post lets name this part "Processing the message".
+When doing event-driven applications using Kafka, on the consumer side, after receiving the Kafka message, your application needs to do something with it. For this blog post, let's call this part "Processing the message".
 
-But wait, lets get everybody to the same page, what is Kafka again?
+## What is Kafka again?
 
-Apache Kafka is a distributed streaming platform that allows applications to process, store, and analyze large streams of data in real-time. It is designed to handle high volume, high throughput, and low latency data streams.
+But before we dive into that, let's make sure we're all on the same page and refresh our memory on what exactly Kafka is.
 
-In Kafka, a consumer is an application that reads messages from one or more topics. Consumers subscribe to one or more topics and consume the messages that are produced to those topics. Consumers keep track of the offset of the messages that they have consumed, so that they can pick up where they left off in case of failures or restarts. Consumers can also be part of a consumer group, where each consumer in the group is assigned a subset of the partitions for a topic, allowing for parallel consumption of the data.
+Apache Kafka is a super powerful distributed streaming platform that allows applications to process, store, and analyze large streams of data in real time. It's built to handle a high volume, high throughput, and low latency data streams.
 
-Now that we are all in the same page, lets create an example:
+In Kafka, a consumer is an application that reads messages from one or more topics. Consumers subscribe to one or more topics and consume the messages that are produced on those topics. Consumers keep track of the offset of the messages that they have consumed so that they can pick up where they left off in case of failures or restarts.
 
-We work on a company named ACME, and we have a Kafka topic which receives a new message every time a new Customer is created and this Customer needs to receive an email saying that his account is now fully created and that they need to verify the email.
+Consumers can also be part of a consumer group, where each consumer in the group is assigned a subset of the partitions for a topic, allowing for parallel consumption of the data.
 
-When we read something like "when something happens" do "something else", always think about events! Events, in Kafka are messages!
+## Working with examples
 
-So now, we are going to create this microservice that will:
+Now that we're all on the same page, let's create an example. Imagine you work for a company named ACME, and you have a Kafka topic that receives a new message every time a new customer is created. This customer needs to receive an email saying that their account is fully created and that they need to verify their email.
 
-1. Receive this new customer message from Kafka
-2. Compose a nice email
-3. Send it to the customer
-4. Add a new message to another topic saying that the message was sent!
+When we read something like "when something happens" do "something else," always think about events! Events, in Kafka, are messages!
 
-Lets diagram that for more visibility:
+We're going to create a microservice that will:
+
+* Receive this new customer message from Kafka.
+* Compose a nice email.
+* Send it to the customer.
+* Add a new message to another topic saying that the message was sent!
+
+Let's diagram that for more visibility:
 
 {{<mermaid>}}
 graph LR
@@ -40,43 +44,45 @@ graph LR
     end
 {{</mermaid>}}
 
+## Where are the retries?
+
 Cool, but, this is a blog post about retries right? Where are the retries in all of it?
 
-Well, any part of the processing can go wrong, lets name a few things that can go wrong:
+Well, any part of the processing can go wrong, and we don't want our customers to miss out on their account creation emails, do we? So, let's talk about a few things that could go wrong and how we can handle them with retries:
 
-* The email template database might be down.
-* The template persisted inside of it might be invalid.
-* The SMTP server might be down or drop a message.
-* The application might compose the SMTP message badly and the SMTP server reject it.
-* Producing the message to the other Kafka topic might return an error in the Kafka's server side.
+* The email template database might be down. No problem, we'll just keep trying to connect until it's back up.
+* The template persisted inside of it might be invalid. We'll check for this and alert the team to update it if needed.
+* The SMTP server might be down or drop a message. We'll keep trying to send the email until it goes through.
+* The application might compose the SMTP message badly and the SMTP server reject it. We'll catch this error and fix the composition before trying again.
+* Producing the message to the other Kafka topic might return an error on Kafka's server side. We'll keep trying until it's successfully sent.
 
-Some of these errors require code/data changes, for example, to fix the template we need to update it, to correct the way the app is composing the SMTP message we need to make a code change. There's no real good way of retrying that since it will probably require manual intervation.
+Some of the errors mentioned may require code or data modifications to resolve, such as updating a template or correcting the way the application composes an SMTP message. These types of errors may not be suitable for retries as they may require manual intervention.
 
-However, the other ones could be tried. The database might be temporarely down, producing the message might have error out out of flakiness and the SMTP server could be overloaded at that time but should be back up now.
+On the other hand, other errors such as temporary database downtime, flaky message production, or overloaded SMTP servers can potentially be resolved by retrying the operation.
 
-## Enter Kafka Consumer Retries!
+## Unlocking Kafka Consumer Retries
 
-After this very long introduction, this problem is something that I face daily in several of our microservices. Kafka is a topic, and as such, doesn't provide retry mechanism built in. I tried multiple software architectures for retrying message processing, none of them are ideal and finally I found one that is the easiest to deal with.
+As a daily challenge in several of our microservices, the lack of a built-in retry mechanism in Kafka can be frustrating. I've experimented with various software architectures for retrying message processing, but none of them was the perfect solution - but there's one that's easiest to deal with.
 
-### But first, let me share some background of what I tried
+Before diving into the solution, let me share some background on my previous attempts.
 
-#### AWS SQS
+### AWS SQS: A Great Option, But With Limitations
 
-I'm a strong AWS advocate, and the first thing that came to mind when thinking **retries** was almost instantaneously AWS SQS.
+As a strong advocate for AWS, my first thought when considering retries was AWS SQS.
 
-Let's remember what is AWS SQS again:
+Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables the decoupling and scaling of microservices, distributed systems, and serverless applications. It comes with built-in retry capabilities, such as a backoff algorithm, a maximum retry limit before moving to a dead-letter queue, and supports a maximum message size of 256 KB.
 
-Amazon Simple Queue Service (SQS) is a fully managed message queuing service that enables decoupling and scaling of microservices, distributed systems, and serverless applications. SQS automatically retries failed messages with a backoff algorithm, allows for specifying a maximum retries before moving to a dead-letter queue and supports a maximum message size of **256 KB**.
+While SQS is a great option for retries, it falls short when it comes to messaging size. Kafka messages can have a size of up to 1 MB by default and can even exceed that.
 
-So, AWS SQS is amazing, and allows for resiliency and decoupling easily and with retries backed in. But that last sentence is the real problem: SQS only goes to 256 KB while Kafka messages can have all the way up to 1 MB by default, and can even be more than that!
+But then you tell me "OK Alex, but that's not a big deal", well it kinda is, because we have no good way of controlling the message size, it can grow and break your application without you even realizing it! And by that time you will have lost messages or will have a big production incident on your hands.
 
-But then you tell me "OK Alex, but that's not a big deal", well it kinda is, because we have no good way of controlling the message size, it can grow and break your application without you even realizing! And by that time you will have lost messages or will have a big production incident in your hands.
+So, while SQS is a great option, it's not the best fit for our Kafka-based microservices. But don't worry, we've found a solution that works even better.
 
-#### Kafka
+### Kafka
 
-Yes, that's exactly it, since SQS its a problem, why not use Kafka itself?
+Yes, that's exactly it, since SQS isn't a suitable solution, why not use Kafka itself?
 
-I tried to spin up an application Kafka topic that's internal only to the application itself where the application would push to and in case of a failure it would enqueue it again with a new `count` attribute in the header, let me diagram that to make more sense:
+I attempted to create an internal application Kafka topic that would only be used by the application, where the application would push messages to it, and in case of a failure, it would enqueue the message again with a new count attribute in the header. Let me diagram that to make it more clear:
 
 {{<mermaid>}}
 sequenceDiagram
@@ -96,17 +102,15 @@ sequenceDiagram
     Application -->> DLQ Kafka Topic: Produce message
 {{</mermaid>}}
 
-And it works, it trully does, but it have some pretty significant downsides.
+While this approach does work, it has some significant downsides. Firstly, setting up Kafka topics is not as straightforward as SQS, creating multiple topics can be somewhat cumbersome, and dealing with all the consumers and producers within the code can become quite messy.
 
-Firstly, Kafka topics are not as trivial to setup as SQS, creating multiple Kafka topics can be somewhat cumbersome, and dealing with all these consumers and producers inside the code can get really messy.
+Furthermore, Kafka doesn't support retries built-in. This is because the Kafka protocol is designed for high-throughput and low-latency data streaming, and retries add overhead and complexity to the system.
 
-Moreover, and yet again, Kafka doesn't support retries built in, this is because the Kafka protocol is designed for high-throughput and low-latency data streaming, and retries add overhead and complexity to the system.
+### Databases
 
-#### Databases
+Desperate Times Call for Desperate Measures, right?
 
-Desperate times, desperate measures, right?
-
-Moderns SQL databases support LOCKING mechanism you can leverage that to use a table records as a queue.
+As a last resort, I turned to use databases for message retries. Modern SQL databases have LOCKING mechanisms that can be leveraged to use a table as a queue.
 
 {{<mermaid>}}
 sequenceDiagram
@@ -120,42 +124,46 @@ sequenceDiagram
     end
 {{</mermaid>}}
 
-And, believe it or not, it works!
+To my surprise, this approach worked! However, it's not a perfect solution. Databases are not designed to function as queues, and using them in this way can be a stretch. There are a few downsides to this approach:
 
-However, it isn't great. Databases are clearly not queues and using it as such is a strech.
+* Databases are built for consistency using transactions, which can make them performant, but they will never perform as well as a specialized tool like Kafka. This can easily become a bottleneck in the system.
+* Managing all of this code can easily become problematic, and it is not an easy pattern to share across an entire company.
 
-* Databases are built for consistency using transactions, and it can be quite performant, but it will never performe as much as something like Kafka. Hence it can easily become a bottleneck.
-* Managing all of this code can easily become problematic and is not a easily pattern to share accross your entire company.
+### So, what now? Memory!
 
-### So, what now?
+After trying all of the above solutions and being unsatisfied with the results, I decided to look at how other companies and frameworks handle retries.
 
-After trying all of the above, having some degree of success and several degress of failure and mostly being unsatisfied with the results I decided to look at how some other companies and frameworks are doing it.
+One framework that stood out to me is Spring, an open-source Java framework that provides a comprehensive programming and configuration model for building modern enterprise applications.
 
-There's very little resource about that in the internet (which is one of the reasons why I'm writing this blog post). However, one of the biggest frameworks we have in existence do have a retry mechanism: Spring!
+### The Spring way
 
-Spring is an open-source Java framework that provides a comprehensive programming and configuration model for building modern enterprise applications through multiple modules and you pick the ones you need.
+One of the modules within Spring is Spring Kafka, which provides several ways to handle retries when consuming messages. These include using the `RetryTemplate` and `RetryCallback` interfaces from the Spring Retry library to define a retry policy, using the `@KafkaListener` annotation to configure retry behavior on a per-method basis, or using AOP to handle retries by using a `RetryInterceptor`.
 
-One of such modules is the Spring Kafka, which provides several ways to handle retries when consuming messages, such as using the RetryTemplate and RetryCallback interfaces from the Spring Retry library to define a retry policy, using the @KafkaListener annotation to configure retry behavior on a per-method basis or using AOP to handle retries by using a RetryInterceptor. Spring Kafka allows developers to choose the approach that best fits their use case, whether it is a global retry policy or a more fine-grained per-method retry configuration.
+Spring Kafka allows developers to choose the approach that best fits their use case, whether it is a global retry policy or a more fine-grained per-method retry configuration.
 
-Has been a long time that I don't work with Java, and Spring code is far from easy to understand (its pretty advanced stuff), but after a deep dive of it, this is the very shallow understand I acquired from it:
+Has been a long time since I don't work with Java, and Spring code is far from easy to understand (it's pretty advanced stuff), but after diving deeper into the Spring Kafka framework, I discovered that it implements an error handler using a strategy for handling exceptions thrown by the consumers.
 
-Spring implements an Error Handler using a strategy for handling exceptions thrown by the consumers. When an exception that is not a `BatchListenerFailedException` (which Spring knows is impossible to retry) is thrown, the error handler will retry the batch of records **from memory**. To prevent a consumer rebalance during an extended retry sequence, the error handler pauses the consumer, polls it before sleeping for the back off interval for each retry, and calls the listener again. If the retries are exhausted, it invokes a Consumer Record Recoverer for each record in the batch. If the recoverer throws an exception or the thread is interrupted during its sleep, the batch of records will be redelivered on the next poll. The consumer is resumed regardless of the outcome before the error handler exits.
+When an exception that is not a `BatchListenerFailedException` (which Spring knows is impossible to retry) is thrown, the error handler will retry the batch of records from memory. This prevents a consumer rebalance during an extended retry sequence and allows for a more elegant solution.
 
-In my honest opinion this is a really elegant solution.
+In my honest opinion, the Spring Kafka framework offers a robust and flexible approach to handling retries that is well worth considering for any enterprise application.
 
-### Recreating it in Golang
+It provides a range of options for developers to choose from and allows for more fine-grained control over retry behavior, making it a great choice for any organization looking to implement a retry mechanism for their messaging system.
 
-I currently work (and love 💙) with Go, and, as far as my research went, I didn't find any rewwrite of the Spring Kafka+Retry framework in Golang, so, lets build our own!
+### Recreating Spring Kafka's Retry Mechanism in Go
 
-Here, I want to point that there's one **key difference** in our implementation, I do really like the idea of pausing the Consumer and in case of something catastrophic happen it going back to the previous record of the batch. However, I don't really think that is necessary, I preferred to implement it by:
+I currently work with (and love 💙) Go, and, as far as my research went, I didn't find any rewrite of the Spring Kafka and Retry framework in Go, so, let's build our own!
 
-* Creating a Consumer that will read from the topic.
-* Create a go channel that will handle the retries.
-* If a message fail to process, send it to the retry channel.
-* The main consumer continues to process the main topic while the other messages are retried
-* If the retries exhaust it sends it to a persisted DLQ for later investigation
+Here, I want to point out one key difference in my implementation compared to Spring Kafka's approach. I appreciate the idea of pausing the Consumer and going back to the previous record of the batch in case of a catastrophic failure. However, I don't believe it's necessary and have chosen to implement it differently.
 
-⚠️ The **key** assumption here is that your application don't strongly care the order of the messages, so you can keep retrying a message while progressing the topic, if that's **not** the case, you will need to stop the consumer!
+My approach includes:
+
+* Creating a Consumer that reads from the topic.
+* Creating a Go channel that handles retries.
+* If a message fails to process, it is sent to the retry channel.
+* The main consumer continues to process the main topic while the other messages are retried.
+* If retries are exhausted, the message is sent to a persisted DLQ for later investigation.
+
+⚠️ It's important to note that this approach assumes that your application doesn't strongly rely on the order of the messages. If that is the case, you will need to stop the consumer while retrying a message. This approach, however, allows for progress to be made on the topic while retries are being attempted.
 
 #### Here's the code
 
@@ -179,9 +187,17 @@ The `kafka_retry_dlq` package provides a mechanism for consuming messages from a
 
 ##### Functions
 
-* `NewConsumerWithRetry(ctx context.Context, brokers []string, topic string, partition int, handler ProcessRetryHandler)`: creates a new kafka consumer with retry mechanism.
-  * It creates a new kafka reader with the provided brokers, topic, partition and buffer size.
-  * It starts a goroutine that reads messages from the kafka topic and processes them using the provided `handler`.
+* `NewConsumerWithRetry(ctx context.Context, brokers []string, topic string, partition int, handler ProcessRetryHandler)`: creates a new Kafka consumer with a retry mechanism.
+  * It creates a new Kafka reader with the provided brokers, topic, partition, and buffer size.
+  * It starts a goroutine that reads messages from the Kafka topic and processes them using the provided `handler`.
   * If the processing of a message returns an error, the message is sent to the `retryQueue` channel.
   * It starts another goroutine that listens to the `retryQueue` channel and processes the messages with the provided `handler` until the maximum number of retries is reached or the message is successfully processed.
   * If the maximum number of retries is reached, the message is moved to the dead letter queue using the `MoveToDLQ` method of the `handler`.
+
+## In conclusion (WIP)
+
+In conclusion, implementing retries in event-driven applications using Kafka may seem like a daunting task, but with the right tools and a bit of creativity, it can be a breeze! Retries are crucial in ensuring that customers never miss out on important account creation emails, and with them, we can handle any challenges that may arise during message processing with grace and ease.
+
+We discussed the benefits of retries and highlighted some of the potential challenges that can occur, such as database downtime, invalid templates, and overloaded SMTP servers. But, with solutions like AWS SQS, a fully managed message queuing service with built-in retry capabilities, we can confidently tackle those challenges head-on. Though SQS may have limitations when it comes to messaging size, it is still a great option for smaller messages.
+
+In the end, it all comes down to understanding the potential issues that can arise and selecting the right tools and strategies to handle them. By doing so, we can achieve robust and reliable message processing in Kafka, resulting in a seamless customer experience and a more efficient and effective organization. So, let's embrace the challenge and make retries work for us!

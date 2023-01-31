@@ -194,10 +194,6 @@ The `kafka_retry_dlq` package provides a mechanism for consuming messages from a
   * It starts another goroutine that listens to the `retryQueue` channel and processes the messages with the provided `handler` until the maximum number of retries is reached or the message is successfully processed.
   * If the maximum number of retries is reached, the message is moved to the dead letter queue using the `MoveToDLQ` method of the `handler`.
 
-## In conclusion (WIP)
+## In conclusion
 
-In conclusion, implementing retries in event-driven applications using Kafka may seem like a daunting task, but with the right tools and a bit of creativity, it can be a breeze! Retries are crucial in ensuring that customers never miss out on important account creation emails, and with them, we can handle any challenges that may arise during message processing with grace and ease.
-
-We discussed the benefits of retries and highlighted some of the potential challenges that can occur, such as database downtime, invalid templates, and overloaded SMTP servers. But, with solutions like AWS SQS, a fully managed message queuing service with built-in retry capabilities, we can confidently tackle those challenges head-on. Though SQS may have limitations when it comes to messaging size, it is still a great option for smaller messages.
-
-In the end, it all comes down to understanding the potential issues that can arise and selecting the right tools and strategies to handle them. By doing so, we can achieve robust and reliable message processing in Kafka, resulting in a seamless customer experience and a more efficient and effective organization. So, let's embrace the challenge and make retries work for us!
+Retries play an important role in improving the resiliency of event-driven systems by allowing them to handle unexpected failures and errors. However, it's crucial to also combine retries with metrics, Service Level Objectives (SLOs), and Service Level Agreements (SLAs) to ensure that the system is not in a faulty state all the time. The goal is to only have the application retry in exceptional cases, and the combination of retries with SLOs and SLAs helps to guarantee this.

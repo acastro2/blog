@@ -15,6 +15,6 @@ enableRobotsTXT = true
 [Menus]
   main = [
       {Name = "Archive", URL = "/post"},
-      {Name = "LinkedIn", URL = "https://www.linkedin.com/in/alexandreamadocastro/"},
-      {Name = "Github", URL = "https://github.com/acastro2/"}
+      {Name = "Consulting", URL = ""},
+      {Name = "Mentorship", URL = ""}
   ]

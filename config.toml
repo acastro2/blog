@@ -11,10 +11,3 @@ enableRobotsTXT = true
   description = "Insights on software architecture and platform engineering from my daily work"
   default_image = "/media/default.png"
   custom_css = ["css/overhyde.css"]
-
-[Menus]
-  main = [
-      {Name = "Archive", URL = "/post"},
-      {Name = "Consulting", URL = ""},
-      {Name = "Mentorship", URL = ""}
-  ]

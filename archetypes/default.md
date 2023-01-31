@@ -5,3 +5,5 @@ image: ""
 summary: ""
 draft: true
 ---
+
+{{< buy_me_coffee >}}

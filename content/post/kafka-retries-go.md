@@ -1,7 +1,9 @@
 ---
 title: "Kafka Retries: Implementing Consumer Retry Capabilities in Go"
 date: 2023-01-24T22:44:14-06:00
-draft: true
+image: ""
+summary: "Unlock the power of retries for your event-driven applications using Apache Kafka with a simple solution. Learn about the limitations of retries in Kafka and how to overcome them for successful processing of large streams of data in real-time"
+#draft: true
 ---
 
 When doing event-driven applications using Kafka, on the consumer side, after receiving the Kafka message, your application needs to do something with it. For this blog post, let's call this part "Processing the message".
@@ -197,3 +199,5 @@ The `kafka_retry_dlq` package provides a mechanism for consuming messages from a
 ## In conclusion
 
 Retries play an important role in improving the resiliency of event-driven systems by allowing them to handle unexpected failures and errors. However, it's crucial to also combine retries with metrics, Service Level Objectives (SLOs), and Service Level Agreements (SLAs) to ensure that the system is not in a faulty state all the time. The goal is to only have the application retry in exceptional cases, and the combination of retries with SLOs and SLAs helps to guarantee this.
+
+{{< buy_me_coffee >}}

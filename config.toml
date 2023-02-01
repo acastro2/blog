@@ -8,6 +8,6 @@ enableRobotsTXT = true
   name = 'Alexandre Castro'
 
 [params]
-  description = "Insights on software architecture and platform engineering from my daily work"
+  description = "Insights on software architecture and platform engineering from my daily work."
   default_image = "/media/default.png"
   custom_css = ["css/overhyde.css"]

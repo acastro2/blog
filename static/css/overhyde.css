@@ -53,3 +53,21 @@
 .pagination li.active a:visited {
   background-color: #ddd;
 }
+
+a {
+  color: orangered;
+  text-decoration: none;
+}
+
+.related-posts li a:hover {
+  color: orangered;
+  text-decoration: none;
+}
+
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: orangered;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+}

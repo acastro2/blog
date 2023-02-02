@@ -1,9 +1,14 @@
 ---
 title: "Kafka Retries: Implementing Consumer Retry Capabilities in Go"
-date: 2023-01-31T16:10:00-06:00
-image: ""
+date: 2023-02-01T18:15:00-06:00
+image: "intro-diagram.png"
 summary: "Unlock the power of retries for your event-driven applications using Apache Kafka with a simple solution. Learn about the limitations of retries in Kafka and how to overcome them for successful processing of large streams of data in real-time"
 ---
+
+{{< figure
+  src="intro-diagram.png"
+  alt="Three kafka topics with messages inside of it and a Golang gopher running to retry."
+>}}
 
 When doing event-driven applications using Kafka, on the consumer side, after receiving the Kafka message, your application needs to do something with it. For this blog post, let's call this part "Processing the message".
 

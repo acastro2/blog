@@ -2,29 +2,31 @@
 <link rel="stylesheet" href="{{ . | absURL }}">
 {{- end }}
 
-  <meta name="title" property=”og:title” content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
-  <meta name="twitter:title" content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
+<link rel="icon"
+  href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 
-  {{ if .Date }}
-  <meta name='date' content='{{ .Date }}'>
-  {{ end }}
+<meta name="title" property=”og:title” content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
+<meta name="twitter:title" content="{{ .Title }}{{ if ne .Title .Site.Title }} | {{ .Site.Title }}{{ end }}" />
 
-  <meta name="description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
-  <meta property="og:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
-  <meta name="twitter:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
+{{ if .Date }}
+<meta name='date' content='{{ .Date }}'>
+{{ end }}
 
-  <meta itemprop="image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
-  <meta property="og:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
-  <meta name="twitter:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
-  <meta name="twitter:image:src" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+<meta name="description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
+<meta property="og:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
+<meta name="twitter:description" content="{{ .Description }}{{ if not .Description }}{{ .Site.Params.Description }}{{ end }}" />
 
-  <meta name='language' content='EN'>
-  <meta name='og:country-name' content='USA'>
+<meta itemprop="image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+<meta property="og:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+<meta name="twitter:image" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
+<meta name="twitter:image:src" content="{{ .Params.Image }}{{ if not .Params.Image }}{{ .Site.Params.DefaultImage }}{{ end }}" />
 
-  <!--Inject Mermaid-->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>mermaid.initialize({ startOnLoad: true, securityLevel: "loose", theme: "default" });</script>
-  <!--End Inject Mermaid-->
+<meta name='language' content='EN'>
+<meta name='og:country-name' content='USA'>
 
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+<script async defer src="https://analytics.umami.is/script.js" data-website-id="045a8829-5717-46ef-8978-aeb97b0fadd9"></script>
+
+<!--Inject Mermaid-->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, securityLevel: "loose", theme: "default" });</script>
+<!--End Inject Mermaid-->

@@ -1,3 +1,6 @@
 [submodule "themes/hyde"]
 	path = themes/hyde
 	url = https://github.com/spf13/hyde
+[submodule "themes/hugo-chart"]
+	path = themes/hugo-chart
+	url = https://github.com/Shen-Yu/hugo-chart.git

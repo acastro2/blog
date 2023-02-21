@@ -1,7 +1,7 @@
 baseURL = 'https://alexandrecastro.tech/'
 languageCode = 'en-us'
 title = 'Alexandre Castro'
-theme = "hyde"
+theme = ["hugo-chart", "hyde"]
 enableRobotsTXT = true
 
 [author]

@@ -3,4 +3,4 @@
 	url = https://github.com/spf13/hyde
 [submodule "themes/hugo-chart"]
 	path = themes/hugo-chart
-	url = https://github.com/Shen-Yu/hugo-chart.git
+	url = https://github.com/acastro2/hugo-chart

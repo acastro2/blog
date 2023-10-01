@@ -36,5 +36,61 @@ Ready to dive into the nitty-gritty of setting this up with AWS Lambdas, LlamaIn
 
 <<Diagram>>
 
+## Data Crawling
+
+Implementing the data crawler lambda and orchestrating it with cloudwatch triggers is a breeze. The only thing you need to do is to define the data source and the data destination. The data source can be a URL, a PDF, a document, or an API. The data destination is a DynamoDB table. The crawler will fetch the data from the source and store it in the destination table.
+
+```python
+```
+
+Here I implemented this interface so you can extend that to support any other data sources you can think of.
+
+### Processing and storing the data
+
+LlamaIndex requires a few stores for it to work:
+
+* Document stores: where ingested documents (i.e., Node objects) are stored,
+* Index stores: where index metadata are stored,
+* Vector stores: where embedding vectors are stored.
+* Graph stores: where knowledge graphs are stored (i.e. for KnowledgeGraphIndex).
+
+However, this is all abstracted away from you and LlamaIndex supports a ton of databases to store your data: https://gpt-index.readthedocs.io/en/latest/core_modules/data_modules/storage/vector_stores.html for you to store you data on.
+
+I decided to store these in DynamoDB (because its probably my favorite NoSQL database).
+
+Processing and persisting the data is very easy:
+
+```python
+```
+
+## Now the magic: Querying the data
+
+Now I have created another AWS Lambda only for querying the data. <<I need to explain how to query the data, because I don't really understand it well>>
+
+```python
+```
+
+## The Chatbot
+
+For my use case, I would like to render this chatbot in a web UI from another internal application we have. I'm not the strongest frontend developer, hence, I decided to start from something that is already built and extend it, I selected this really nice repository to start from https://github.com/mckaywrigley/chatbot-ui-lite. It's a really nice chatbot UI built with React, Redux and Tailwind.
+
+However, I wanted to make this more future proof, because I can see the potential for it to grow, hence, I decided to use AWS Lex to interface between the lambda and the UI.
+
+> AWS Lex is a service that allows you to build conversational interfaces into any application using voice and text. Lex provides the advanced deep learning functionalities of automatic speech recognition (ASR) for converting speech to text, and natural language understanding (NLU) to recognize the intent of the text, to enable you to build applications with highly engaging user experiences and lifelike conversational interactions. With Amazon Lex, the same deep learning technologies that power Amazon Alexa are now available to any developer, enabling you to quickly and easily build sophisticated, natural language, conversational bots (“chatbots”).
+
+The key reason why I decided to use AWS Lex, is because I can setup the LlamaIndex query lambda as the fallback functionality for Lex. So, if Lex doesn't understand the user's input, it will call the LlamaIndex query lambda to try and find an answer. However, I can build intentions on top of Lex that will allow me to create more complex interactions with the user, like for example:
+
+* Schedule a topic for our internal office hours
+* Request a new feature in some application, which will create a ticket in Jira ticket for the correct team to pick up
+* <<think of other examples>>
+
+All of these can be accomplished with AWS Lex, and I can use the LlamaIndex query lambda as a fallback for more general questions.
+
+However, I would like to make it clear, that if you don't have the intention of extending this as a chatbot, you can put the query lambda behind an API Gateway and call it directly from the UI.
+
+But enough talk, lets look at some code, the repository above talks directly with ChatGPT, so we need to implement a new interface to talk with AWS Lex.
+
+```typescript
+```
 
 {{< buy_me_coffee >}}

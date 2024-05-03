@@ -1,6 +1,6 @@
 ---
 title: "You are a Senior Engineer, now what?"
-date: 2023-02-20T21:07:27-06:00
+date: 2024-05-02T22:54:00-06:00
 image: "gopher-practicing.jpeg"
 summary: "To excel as a Senior Engineer, develop both technical depth and breadth, stay up-to-date, and learn software design and architecture. Focus on Books and practice!"
 draft: true

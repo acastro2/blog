@@ -8,4 +8,4 @@ enableRobotsTXT = true
   description = "Personal insights on software architecture and platform engineering."
   default_image = "/media/default.png"
   custom_css = ["css/overhyde.css"]
-  author.name = 'Alexandre Castro'
+  author.name = "Alexandre Castro"

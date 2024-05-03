@@ -4,10 +4,8 @@ title = 'Alexandre Castro'
 theme = ["hugo-chart", "hyde"]
 enableRobotsTXT = true
 
-[author]
-  name = 'Alexandre Castro'
-
 [params]
   description = "Personal insights on software architecture and platform engineering."
   default_image = "/media/default.png"
   custom_css = ["css/overhyde.css"]
+  author.name = 'Alexandre Castro'

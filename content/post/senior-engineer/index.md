@@ -1,6 +1,6 @@
 ---
 title: "You are a Senior Engineer, now what?"
-date: 2024-05-02T22:54:00-06:00
+date: 2024-05-01T22:54:00-06:00
 image: "gopher-practicing.jpeg"
 summary: "To excel as a Senior Engineer, develop both technical depth and breadth, stay up-to-date, and learn software design and architecture. Focus on Books and practice!"
 draft: true
@@ -50,6 +50,11 @@ Additionally, it's important to understand that design and architecture go hand 
 Learning software architecture and design can be a challenge, especially since it's not as straightforward as learning a new coding language. As the saying goes, software architecture and design are the things you can't simply Google. This means that you'll need to rely on two main sources for learning:
 
 ## 📕 Books!
+
+{{< figure
+  src="gopher-reading.jpeg"
+  alt="Gopher reading a book."
+>}}
 
 When it comes to these topics, there's no substitute for diving deep into the subject matter. While video tutorials can be helpful, books are the raw source that will give you the depth of knowledge you need to truly understand these complex topics. If you're looking for a good place to start, I highly recommend checking out these books:
 

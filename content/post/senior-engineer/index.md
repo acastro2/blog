@@ -121,6 +121,6 @@ Break it down into smaller, more understandable pieces, and you'll be well on yo
 
 Additionally, understanding that software design and architecture go hand in hand is crucial for staying competitive in your career. To achieve this, you can rely on books and other sources to continue learning and deepening your understanding of these complex topics. Remember, staying up-to-date with the latest tools, techniques, and approaches is essential to remain competitive in your career.
 
-If you're seeking more personalized guidance or mentoring, I’m here to help. You can easily book a time with me through the menu on the left — let’s tackle your challenges together!
+If you're seeking more personalized guidance or mentoring, I’m here to help. You can easily book a time with me [here](https://calendly.com/alexandre-castro/consulting) or through the menu on the left — let’s tackle your challenges together!
 
 {{< buy_me_coffee >}}

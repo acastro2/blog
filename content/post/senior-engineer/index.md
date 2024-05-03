@@ -6,11 +6,13 @@ summary: "To excel as a Senior Engineer, develop both technical depth and breadt
 draft: true
 ---
 
-First of all, congratulations! You've earned the rank of Senior Engineer. That's no small feat, and you should be proud of your hard work and dedication. However, as you might be wondering, ok, now what's next? This is a question that many software engineers ask themselves, and for good reason. After all, reaching this point can feel like the pinnacle of their career.
+First of all, congratulations! You’ve earned the rank of Senior Engineer. That's no small feat, and you should be proud of your hard work and dedication.
+
+Now, you might be wondering, "What's next?" This is not only a common question but also one that I frequently get asked. As a Principal Engineer, I have the great opportunity to mentor many seniors and tech leads. That's precisely why I'm writing this blog post—to extend my personal observations to more people who are trying to navigate their next steps in their technology career.
 
 But the truth is, becoming a senior engineer is only the beginning of a new chapter in your professional journey. So, there's no need to be afraid! I'm here to help, I will delve into some insights on how you can continue to thrive and achieve even greater success as a Senior Engineer. Let's dive in! 👏
 
-Now that you are a senior, the junior days are over, does that means that you should know everything? Absolutely not. Being a senior is about knowing how much you don't know. However, that also means you should be constantly seeking more technical knowledge in both depth and breadth, but what... what does that mean?
+Now that you are a senior, the junior days are over, does that mean that you should know everything? Absolutely not. Being a senior is about knowing how much you don't know. However, that also means you should be constantly seeking more technical knowledge in both depth and breadth, but what... what does that mean?
 
 ## Technical Depth and Breadth
 
@@ -49,7 +51,7 @@ Additionally, it's important to understand that design and architecture go hand 
 
 Learning software architecture and design can be a challenge, especially since it's not as straightforward as learning a new coding language. As the saying goes, software architecture and design are the things you can't simply Google. This means that you'll need to rely on two main sources for learning:
 
-## 📕 Books!
+## 📕 Books
 
 {{< figure
   src="gopher-reading.jpeg"
@@ -62,7 +64,7 @@ When it comes to these topics, there's no substitute for diving deep into the su
 - ["Fundamentals of Software Architecture: An Engineering Approach" by Mark Richards and Neal Ford](https://www.amazon.com/Fundamentals-Software-Architecture-Engineering-Approach) covers the essential principles of software architecture and provides practical guidance for designing scalable and maintainable systems. The authors break down complex topics into easy-to-understand explanations and provide real-world examples to illustrate their points.
 - ["Refactoring: Improving the Design of Existing Code" by Martin Fowler](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature) is a classic book that every software developer should read. It teaches you how to improve the design of existing code by making small, focused changes. While this book is a challenging read, it's well worth the effort if you want to improve your design skills.
 
-## 🗞️ News!
+## 🗞️ News
 
 Keeping up-to-date with the latest technologies is critical, as they will undoubtedly shape the future of software engineering. For example, Kubernetes, which was introduced less than a decade ago, has become the default choice for many in the industry. Therefore, it's crucial to stay informed about the latest tech news to remain relevant and competitive.
 
@@ -107,14 +109,18 @@ By embracing these experiences, you'll be able to learn new things, expand your 
 
 Finally, let's discuss the "shortcut" for tackling complex problems and concepts. By breaking them down into smaller, more manageable concepts, you can better understand and build upon them. For example:
 
-Let's say you are feeling lost in a project that requires you to use Kafka but have no idea what Kafka is or what it's for. Don't worry, you're not alone. Kafka is a distributed system that consists of servers and clients communicating through a high-performance TCP network protocol.
+Let's say you are feeling lost in a project that requires you to use Kafka but have no idea what Kafka is or what it's for. Don't worry, you're not alone. Kafka is a distributed system consisting of servers and clients communicating through a high-performance TCP network protocol.
 
-But if that sounds too technical, let's bring it down a level: think of Kafka as a topic that works like a queue, with multiple consumers. Okay, now we're getting somewhere.
+But if that sounds too technical, let's simplify it further: think of Kafka as a topic that functions like a queue, with multiple consumers. Okay, now we're getting somewhere.
 
-But let's bring it down even further: Kafka is essentially a database full of records called messages that you can consume in order. With this understanding, you can now start building on top of it. For instance, knowing that Kafka is a database, you can start exploring key concepts that databases have and use that to further your understanding of Kafka. Don't be intimidated by Kafka or any other technology.
+Further simplifying: Kafka is essentially a database full of records called messages that you can consume in order. With this understanding, you can now start building on top of it. For instance, knowing that Kafka is a database, you can begin exploring key concepts that databases have and use that to further your understanding of Kafka. Don't be intimidated by Kafka or any other technology.
 
 Break it down into smaller, more understandable pieces, and you'll be well on your way to becoming a master.
 
-**In conclusion**, becoming a senior engineer is an outstanding achievement that you should be proud of. However, it's not the end of the road. The journey continues, and there's always more to learn and explore. As a senior engineer, you should focus on developing both technical depth and breadth to stay adaptable and versatile. Additionally, understanding that software design and architecture go hand in hand is crucial for staying competitive in your career. To achieve this, you can rely on books and other sources to continue learning and deepening your understanding of these complex topics. Remember, staying up-to-date with the latest tools, techniques, and approaches is essential to remain competitive in your career.
+**In conclusion**, becoming a senior engineer is an outstanding achievement that you should be proud of. However, it's not the end of the road. The journey continues, and there's always more to learn and explore. As a senior engineer, you should focus on developing both technical depth and breadth to stay adaptable and versatile.
+
+Additionally, understanding that software design and architecture go hand in hand is crucial for staying competitive in your career. To achieve this, you can rely on books and other sources to continue learning and deepening your understanding of these complex topics. Remember, staying up-to-date with the latest tools, techniques, and approaches is essential to remain competitive in your career.
+
+If you're seeking more personalized guidance or mentoring, I’m here to help. You can easily book a time with me through the menu on the left — let’s tackle your challenges together!
 
 {{< buy_me_coffee >}}

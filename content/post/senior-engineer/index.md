@@ -21,13 +21,13 @@ Now that you are a senior, the junior days are over, does that mean that you sho
   alt="Pyramid with technical dept at the top and technical breadth at the bottom."
 >}}
 
-Technical depth refers to a software engineer's deep understanding of a specific area or technology. This means that they have extensive knowledge and expertise in a particular programming language, framework, or tool, which allows them to optimize it, solve complex problems related to it, and work efficiently in that area.
+**Technical depth** refers to a software engineer's deep understanding of a specific area or technology. This means that they have extensive knowledge and expertise in a particular programming language, framework, or tool, which allows them to optimize it, solve complex problems related to it, and work efficiently in that area.
 
 Your technical depth, includes for example, your main programming language, the packages you use the most, what package manager you use, what frameworks you use, what databases you use, what cloud provider you use, etc. This is the area where you are the most comfortable and where you can solve problems the fastest!
 
 For example, a software engineer who specializes in Java may have in-depth knowledge of the language, the Spring framework, and deployment on Tomcat in various configuration scenarios. This enables them to quickly and efficiently troubleshoot issues and optimize not only their work, but also the team's work and sometimes even assist company wise with the general developer experience.
 
-On the other hand, technical breadth refers to a software engineer's broad understanding of multiple areas or technologies. They have a good understanding of various programming languages, frameworks, and tools, and can work on different projects that require different skills and knowledge.
+On the other hand, **technical breadth** refers to a software engineer's broad understanding of multiple areas or technologies. They have a good understanding of various programming languages, frameworks, and tools, and can work on different projects that require different skills and knowledge.
 
 I like to explain technical breadth as the technologies you know exist, you know how they work, what they are good for, but you never had the opportunity to use them directly on your day-to-day.
 
@@ -121,6 +121,6 @@ Break it down into smaller, more understandable pieces, and you'll be well on yo
 
 Additionally, understanding that software design and architecture go hand in hand is crucial for staying competitive in your career. To achieve this, you can rely on books and other sources to continue learning and deepening your understanding of these complex topics. Remember, staying up-to-date with the latest tools, techniques, and approaches is essential to remain competitive in your career.
 
-If you're seeking more personalized guidance or mentoring, I’m here to help. You can easily book a time with me [here](https://calendly.com/alexandre-castro/consulting) or through the menu on the left — let’s tackle your challenges together!
+If you're seeking more personalized guidance or mentoring, I’m here to help. You can easily book a time with me [here](https://cal.com/alexandrecastrotech/mentoring) or through the menu on the left — let’s tackle your challenges together!
 
 {{< buy_me_coffee >}}

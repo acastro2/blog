@@ -1,5 +1,5 @@
 ---
-title: "Part 2: Mastering Software Architecture and Design: Elevating Your Senior Engineer Role"
+title: "Part 1: Embracing Seniority as a Senior Engineer: What's Next?"
 date: 2024-05-01T22:54:00-06:00
 image: "technical-depth-breadth.png"
 summary: "Explore the transition to seniority, emphasizing the importance of continuous learning and mastering both technical depth and breadth."

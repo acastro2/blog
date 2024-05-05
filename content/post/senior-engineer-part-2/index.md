@@ -1,10 +1,14 @@
 ---
-title: "You are a Senior Engineer, now what?"
+title: "Part 2: You are a Senior Engineer, Mastering Software Architecture and Design"
 date: 2024-05-01T22:54:00-06:00
 image: "gopher-practicing.jpeg"
 summary: "To excel as a Senior Engineer, stay up-to-date, and learn software design and architecture. Focus on Books and practice!"
 draft: true
 ---
+
+Hey there, Senior Engineer! You've reached a significant milestone in your career journey, and now it's time to chart the course for what's next. In this blog post, we're diving deep into a crucial aspect of seniority: mastering software architecture and design.
+
+These skills aren't just nice-to-haves; they're essential for staying sharp and competitive in today's tech landscape. So, grab your coffee and get ready to explore the ins and outs of software architecture and design.
 
 ## Picking up new skills: Software architecture and design
 
@@ -23,9 +27,9 @@ Learning software architecture and design can be a challenge, especially since i
 
 When it comes to these topics, there's no substitute for diving deep into the subject matter. While video tutorials can be helpful, books are the raw source that will give you the depth of knowledge you need to truly understand these complex topics. If you're looking for a good place to start, I highly recommend checking out these books:
 
-- ["Head First Design Patterns" by Eric Freeman and Elisabeth Robson](https://www.amazon.com/Head-First-Design-Patterns-Object-Oriented/dp/149207800X) is a friendly and engaging introduction to design patterns and object-oriented programming. This book presents the material in a fun and approachable way, making it easy to understand and retain.
-- ["Fundamentals of Software Architecture: An Engineering Approach" by Mark Richards and Neal Ford](https://www.amazon.com/Fundamentals-Software-Architecture-Engineering-Approach) covers the essential principles of software architecture and provides practical guidance for designing scalable and maintainable systems. The authors break down complex topics into easy-to-understand explanations and provide real-world examples to illustrate their points.
-- ["Refactoring: Improving the Design of Existing Code" by Martin Fowler](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature) is a classic book that every software developer should read. It teaches you how to improve the design of existing code by making small, focused changes. While this book is a challenging read, it's well worth the effort if you want to improve your design skills.
+- ["Head First Design Patterns" by Eric Freeman and Elisabeth Robson](https://amzn.to/3UAChYK) is a friendly and engaging introduction to design patterns and object-oriented programming. This book presents the material in a fun and approachable way, making it easy to understand and retain.
+- ["Fundamentals of Software Architecture: An Engineering Approach" by Mark Richards and Neal Ford](https://amzn.to/3UJsQYa) covers the essential principles of software architecture and provides practical guidance for designing scalable and maintainable systems. The authors break down complex topics into easy-to-understand explanations and provide real-world examples to illustrate their points.
+- ["Refactoring: Improving the Design of Existing Code" by Martin Fowler](https://amzn.to/3WrZ4Ze) is a classic book that every software developer should read. It teaches you how to improve the design of existing code by making small, focused changes. While this book is a challenging read, it's well worth the effort if you want to improve your design skills.
 
 ## 🗞️ News
 
@@ -80,7 +84,9 @@ Further simplifying: Kafka is essentially a database full of records called mess
 
 Break it down into smaller, more understandable pieces, and you'll be well on your way to becoming a master.
 
-**In conclusion**, becoming a senior engineer is an outstanding achievement that you should be proud of. However, it's not the end of the road. The journey continues, and there's always more to learn and explore. As a senior engineer, you should focus on developing both technical depth and breadth to stay adaptable and versatile.
+## Keep learning, keep growing, keep updated
+
+Becoming a senior engineer is an outstanding achievement that you should be proud of. However, it's not the end of the road. The journey continues, and there's always more to learn and explore. As a senior engineer, you should focus on developing both technical depth and breadth to stay adaptable and versatile.
 
 Additionally, understanding that software design and architecture go hand in hand is crucial for staying competitive in your career. To achieve this, you can rely on books and other sources to continue learning and deepening your understanding of these complex topics. Remember, staying up-to-date with the latest tools, techniques, and approaches is essential to remain competitive in your career.
 

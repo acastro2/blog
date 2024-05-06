@@ -55,19 +55,19 @@
 }
 
 a {
-  color: orangered;
+  color: #DB3700;
   text-decoration: none;
 }
 
 .related-posts li a:hover {
-  color: orangered;
+  color: #DB3700;
   text-decoration: none;
 }
 
 code {
   padding: .25em .5em;
   font-size: 85%;
-  color: orangered;
+  color: #DB3700;
   background-color: #f9f9f9;
   border-radius: 3px;
 }

@@ -2,7 +2,7 @@
 title: "Kafka Retries: Implementing Consumer Retry with Go"
 date: 2023-02-01T18:15:00-06:00
 image: "intro-diagram.png"
-summary: "Unlock the power of retries for your event-driven applications using Apache Kafka with a simple solution. Learn about the limitations of retries in Kafka and how to overcome them for successful processing of large streams of data in real-time"
+description: "Unlock the power of retries for your event-driven applications using Apache Kafka with a simple solution. Learn about the limitations of retries in Kafka and how to overcome them for successful processing of large streams of data in real-time"
 ---
 
 {{< figure

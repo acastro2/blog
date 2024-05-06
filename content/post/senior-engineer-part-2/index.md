@@ -2,7 +2,7 @@
 title: "Part 2: You are a Senior Engineer, Mastering Software Architecture and Design"
 date: 2024-05-01T22:54:00-06:00
 image: "gopher-practicing.jpeg"
-summary: "To excel as a Senior Engineer, stay up-to-date, and learn software design and architecture. Focus on Books and practice!"
+description: "To excel as a Senior Engineer, stay up-to-date, and learn software design and architecture. Focus on Books and practice!"
 draft: true
 ---
 

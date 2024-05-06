@@ -2,7 +2,7 @@
 title: "Part 1: You are a Senior Engineer, now what?"
 date: 2024-05-01T22:54:00-06:00
 image: "technical-depth-breadth.png"
-summary: "Explore the transition to seniority, emphasizing the importance of continuous learning and mastering both technical depth and breadth."
+description: "Explore the transition to seniority, emphasizing the importance of continuous learning and mastering both technical depth and breadth."
 draft: true
 ---
 

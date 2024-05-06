@@ -2,7 +2,7 @@
 title: "Internal Documentation Chatbot"
 date: 2023-09-30T22:47:24-05:00
 image: ""
-summary: ""
+description: ""
 draft: true
 ---
 

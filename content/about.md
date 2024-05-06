@@ -3,7 +3,7 @@ title: "About me!"
 date: 2023-01-24T16:32:17-06:00
 description: "Join a tech-savvy software engineer on a journey of learning and exploration in Golang, software architecture, AWS, and Kubernetes"
 image: "/media/author.jpeg"
-summary: "Hey there! My name is Alexandre, but you can call me Alex. I'm a software engineer with a passion for technology and a desire to always learn something new. I come from São Paulo, Brazil and currently living in Chicago, Illinois..."
+description: "Hey there! My name is Alexandre, but you can call me Alex. I'm a software engineer with a passion for technology and a desire to always learn something new. I come from São Paulo, Brazil and currently living in Chicago, Illinois..."
 ---
 
 **🚀 Join a tech-savvy software engineer on a journey of learning and exploration in Golang, software architecture, AWS, and Kubernetes.**

@@ -1,7 +1,7 @@
 ---
 title: "You are a Senior Engineer, now what? (Part 1)"
 date: 2024-05-08T10:00:00-06:00
-image: "technical-depth-breadth.png"
+image: "gopher-grinding.jpg"
 description: "Explore the transition to seniority, emphasizing the importance of continuous learning and mastering both technical depth and breadth."
 ---
 
@@ -45,7 +45,7 @@ Besides technical skills, there are also plenty of soft skills that you'll need 
 ## Keep grinding
 
 {{< figure
-  src="gopher-grinding.webp"
+  src="gopher-grinding.jpg"
   alt="A determined gopher grinds away at work, intently focused at a cluttered desk in a charming black and white sketch."
 >}}
 

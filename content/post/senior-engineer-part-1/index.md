@@ -3,7 +3,6 @@ title: "Part 1: You are a Senior Engineer, now what?"
 date: 2024-05-08T10:00:00-06:00
 image: "technical-depth-breadth.png"
 description: "Explore the transition to seniority, emphasizing the importance of continuous learning and mastering both technical depth and breadth."
-draft: true
 ---
 
 First of all, congratulations! You’ve earned the rank of Senior Engineer. That's no small feat, and you should be proud of your hard work and dedication.

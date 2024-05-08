@@ -1,7 +1,7 @@
 ---
 title: "You are a Senior Engineer, now what? (Part 1)"
 date: 2024-05-08T10:00:00-06:00
-image: "gopher-grinding.jpg"
+image: "technical-depth-breadth.png"
 description: "Explore the transition to seniority, emphasizing the importance of continuous learning and mastering both technical depth and breadth."
 ---
 

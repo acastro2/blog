@@ -2,13 +2,13 @@
 title: "Part 2: You are a Senior Engineer, Mastering Software Architecture and Design"
 date: 2024-05-01T22:54:00-06:00
 image: "gopher-practicing.jpeg"
-description: "To excel as a Senior Engineer, stay up-to-date, and learn software design and architecture. Focus on Books and practice!"
+description: "To excel as a Senior Engineer, stay up-to-date, and learn about software design and architecture, focus on books and practice!"
 draft: true
 ---
 
 Hey there, Senior Engineer! You've reached a significant milestone in your career journey, and now it's time to chart the course for what's next. In this blog post, we're diving deep into a crucial aspect of seniority: mastering software architecture and design.
 
-These skills aren't just nice-to-haves; they're essential for staying sharp and competitive in today's tech landscape. So, grab your coffee and get ready to explore the ins and outs of software architecture and design.
+These skills aren't just nice-to-haves they're essential for staying sharp and competitive in today's tech landscape. So, grab your coffee and get ready to explore the ins and outs of software architecture and design.
 
 ## Picking up new skills: Software architecture and design
 
@@ -35,7 +35,7 @@ When it comes to these topics, there's no substitute for diving deep into the su
 
 Keeping up-to-date with the latest technologies is critical, as they will undoubtedly shape the future of software engineering. For example, Kubernetes, which was introduced less than a decade ago, has become the default choice for many in the industry. Therefore, it's crucial to stay informed about the latest tech news to remain relevant and competitive.
 
-When seeking out news, focus on topics that are specific to the technologies you want to learn, such as Golang, Kubernetes, and Microservices. Additionally, broad technology trends will give you a better understanding of the bigger picture, enabling you to anticipate and prepare for future developments. By staying on top of tech news, you'll be exposed to innovative ideas and emerging trends that will help you to think outside the box and stay ahead of the curve. Some of my personal sources for news is:
+When seeking out news, focus on topics that are specific to the technologies you want to learn, such as Golang, Kubernetes, and Microservices. Additionally, broad technology trends will give you a better understanding of the bigger picture, enabling you to anticipate and prepare for future developments. By staying on top of tech news, you'll be exposed to innovative ideas and emerging trends that will help you think outside the box and stay ahead of the curve. Some of my personal sources for news are:
 
 - Newsletters:
   - [freeCodeCamp](https://www.freecodecamp.org/news/tag/newsletter/)
@@ -53,7 +53,7 @@ When seeking out news, focus on topics that are specific to the technologies you
 
 {{< figure
   src="gopher-practicing.jpeg"
-  alt="Gopher practicing in front of computer."
+  alt="Gopher practicing in front of a computer."
 >}}
 
 The other pillar, as you probably already guessed, is experience. You must expose yourself to an ever-growing list of new things.
@@ -66,8 +66,8 @@ But with time, you will realize that you can do it and be proud of yourself. The
 - Ask your manager to move you to different projects within your team. This will enable you to work on different parts of the system and expose you to different types of problems and solutions.
 - Participate in tech exchange programs. You'll learn a lot from your peers, and it's an excellent opportunity to share your knowledge and skills.
 - Write documentation about systems you don't own but that your team uses. This will help you gain a deeper understanding of how the system works and how different components interact with one another.
-- Work on a lot of proofs-of-concept (POCs). This will give you the opportunity to try out different approaches and experiment with new technologies and methodologies.
-- Try to solve problems that don't need solving, just to learn a new thing. For example, you could explore how re-write an application using NoSQL DB instead of a relational one, even if it's not necessary. This will help you learn new things and expand your skill set.
+- Work on a lot of proofs-of-concept (POCs). This will allow you to try out different approaches and experiment with new technologies and methodologies.
+- Try to solve problems that don't need solving, just to learn a new thing. For example, you could explore how to re-write an application using NoSQL DB instead of a relational one, even if it's not necessary. This will help you learn new things and expand your skill set.
 - Contribute to Open Source!
 
 By embracing these experiences, you'll be able to learn new things, expand your skill set, and build the confidence to take on more significant challenges.

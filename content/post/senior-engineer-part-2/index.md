@@ -1,9 +1,8 @@
 ---
 title: "Part 2: You are a Senior Engineer, Mastering Software Architecture and Design"
-date: 2024-05-01T22:54:00-06:00
+date: 2024-05-14T09:00:00-06:00
 image: "gopher-practicing.jpeg"
 description: "To excel as a Senior Engineer, stay up-to-date, and learn about software design and architecture, focus on books and practice!"
-draft: true
 ---
 
 Hey there, Senior Engineer! You've reached a significant milestone in your career journey, and now it's time to chart the course for what's next. In this blog post, we're diving deep into a crucial aspect of seniority: mastering software architecture and design.

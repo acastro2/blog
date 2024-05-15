@@ -1,5 +1,5 @@
 ---
-title: "Part 2: You are a Senior Engineer, Mastering Software Architecture and Design"
+title: "You are a Senior Engineer, Mastering Software Architecture and Design (Part 2)"
 date: 2024-05-14T09:00:00-06:00
 image: "gopher-practicing.jpeg"
 description: "To excel as a Senior Engineer, stay up-to-date, and learn about software design and architecture, focus on books and practice!"

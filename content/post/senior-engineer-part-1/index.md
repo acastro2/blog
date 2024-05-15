@@ -57,4 +57,10 @@ Stay tuned for Part 2 of our blog series, where we'll dive into one of the most 
 
 If you're seeking more personalized guidance or mentoring, I’m here to help. You can easily book a time with me [here](https://cal.com/alexandrecastrotech/mentoring) or through the menu on the left — let’s tackle your challenges together!
 
+## Series: You are a Senior Engineer
+
+* **You are a Senior Engineer, now what? (Part 1)**
+* [You are a Senior Engineer, Mastering Software Architecture and Design (Part 2)](/post/senior-engineer-part-2/)
+* You are a Senior Engineer, Communication and other Soft Skills (Part 3) - **[Coming soon]**
+
 {{< buy_me_coffee >}}

@@ -1,5 +1,5 @@
 ---
-title: "Part 3: You are a Senior Engineer, Communication and other Soft Skills"
+title: "You are a Senior Engineer, Communication and other Soft Skills (Part 3)"
 date: 2022-02-15T17:57:48-03:00
 description: "This is a short description"
 image: /media/author.png
